@@ -43,20 +43,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: PageView(
-        children: const [
-          MyHomePage(),
-          StatusPage(
-            status: FinancialStatus.healthy,
-          ),
-          StatusPage(
-            status: FinancialStatus.average,
-          ),
-          StatusPage(
-            status: FinancialStatus.unhealthy,
-          ),
-        ],
-      ),
+      home: MyHomePage(),
     );
   }
 }
@@ -362,11 +349,12 @@ class _OneBar extends StatelessWidget {
   int getFlex() {
     if (slotSize == SlotSize.one) {
       return 2;
-    } else if (slotSize == SlotSize.two) {
+    } 
+    if (slotSize == SlotSize.two) {
       return 1;
-    } else {
-      return 0;
     }
+    
+    throw Exception('Should not be called at SlotSize.three');
   }
 
   @override
@@ -379,7 +367,6 @@ class _OneBar extends StatelessWidget {
             children: [
               Container(
                 height: 16,
-                clipBehavior: Clip.hardEdge,
                 decoration: ShapeDecoration(
                   color: color,
                   shape: RoundedRectangleBorder(
