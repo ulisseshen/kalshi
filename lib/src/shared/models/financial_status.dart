@@ -1,0 +1,1 @@
+enum FinancialStatus { healthy, average, unhealthy }
