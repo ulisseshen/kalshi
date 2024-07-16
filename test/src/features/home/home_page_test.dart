@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:kalshi/src/features/home/home_controller.dart';
 import 'package:kalshi/src/features/home/home_page.dart';
+import 'package:kalshi/src/shared/services/financial_calculator_service.dart';
 
 class NavigationObserverSpy extends NavigatorObserver {
   final List<String> _routeNames = [];
@@ -15,9 +16,9 @@ class NavigationObserverSpy extends NavigatorObserver {
 }
 
 void main() {
-  late HomeController controller = HomeController();
+  late HomeController controller;
 
-  setUp(() => controller = HomeController());
+  setUp(() => controller = HomeController(FinancialCalculatorService()));
 
   testWidgets(
       'Should show erro message when amount is empty in the both fields',
