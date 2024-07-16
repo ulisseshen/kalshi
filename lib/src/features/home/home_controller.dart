@@ -14,8 +14,9 @@ class HomeController {
   final textAnnualIncomeController = TextEditingController();
   final textMonthlyCostsController = TextEditingController();
 
-  double get _annualIncome => formatterAnnual.getUnformattedValue().toDouble();
-  double get _monthlyCosts => formatterMonthly.getUnformattedValue().toDouble();
+  double get _annualIncome => formatterAnnual.getDouble();
+  double get _monthlyCosts => formatterMonthly.getDouble();
+
 
   final formatterAnnual = CurrencyTextInputFormatter.currency(
     locale: 'en_US',
