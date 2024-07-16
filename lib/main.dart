@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:kalshi/app/theme.dart';
-import 'package:kalshi/src/features/home/home_controller.dart';
 
+import 'app/theme.dart';
 import 'src/features/home/home_page.dart';
+import 'src/features/home/home_controller.dart';
+import 'src/shared/services/financial_calculator_service.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'A Kalshi App',
       theme: AppTheme.data,
-      home: HomePage(controller: HomeController(),),
+      home: HomePage(controller: HomeController(FinancialCalculatorService())),
     );
   }
 }
