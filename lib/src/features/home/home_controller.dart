@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 
 import '../../shared/models/financial_status.dart';
 
-typedef ValidatorCallback = String? Function(String? value);
-
 class HomeController {
   final _formKey = GlobalKey<FormState>();
   GlobalKey<FormState> get formKey => _formKey;
