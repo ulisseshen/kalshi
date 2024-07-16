@@ -29,6 +29,9 @@ $ flutter pub get
 
 # Run the application
 $ flutter run
+
+# Run the tests
+$ flutter test  
 ```
 
 ## 🏙️ Architecture
