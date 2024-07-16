@@ -121,6 +121,7 @@ class _FinancialForm extends StatelessWidget {
             children: [
               const Text('Annual income'),
               TextFormField(
+                key: const Key('annual_income_text_field'),
                 controller: controller.textAnnualIncomeController,
                 style: GoogleFonts.rubik(
                   fontSize: 24,
@@ -155,6 +156,7 @@ class _FinancialForm extends StatelessWidget {
               VerticalSpacing.medium,
               const Text('Monthly Costs'),
               TextFormField(
+                key: const Key('monthly_costs_text_field'),
                 controller: controller.textMonthlyCostsController,
                 style: GoogleFonts.rubik(
                   fontSize: 24,
@@ -185,11 +187,13 @@ class _FinancialForm extends StatelessWidget {
               ),
               VerticalSpacing.medium,
               ElevatedButton(
+                key: const Key('continue_button'),
                 onPressed: () {
                   if (controller.isFormValid()) {
                     final status = controller.calculateFinancialStatus();
                     Navigator.of(context).push(
                       MaterialPageRoute(
+                        settings: const RouteSettings(name: '/status'),
                         builder: (context) => StatusPage(
                           status: status,
                         ),
