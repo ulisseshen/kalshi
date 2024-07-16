@@ -1,9 +1,13 @@
 import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
 import 'package:flutter/material.dart';
+import 'package:kalshi/src/shared/services/financial_calculator_service.dart';
 
 import '../../shared/models/financial_status.dart';
 
 class HomeController {
+  HomeController(FinancialCalculatorService calculator) : _calculator = calculator;
+
+  final FinancialCalculatorService _calculator;
   final _formKey = GlobalKey<FormState>();
   GlobalKey<FormState> get formKey => _formKey;
 
@@ -56,17 +60,8 @@ class HomeController {
   }
 
   FinancialStatus calculateFinancialStatus() {
-    double annualNetCompensation = _annualIncome - (_annualIncome * 0.08);
-    double annualCosts = _monthlyCosts * 12;
+    final status = _calculator.calculateStatus(_annualIncome, _monthlyCosts);
 
-    double costPercentage = annualCosts / annualNetCompensation;
-
-    if (costPercentage <= 0.25) {
-      return FinancialStatus.healthy;
-    } else if (costPercentage <= 0.75) {
-      return FinancialStatus.average;
-    } else {
-      return FinancialStatus.unhealthy;
-    }
+    return status;
   }
 }
