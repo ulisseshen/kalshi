@@ -35,16 +35,14 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               const _Headline(),
-              const SizedBox(
-                height: 24,
-              ),
+              VerticalSpacing.large,
               Card(
                 child: Padding(
                   padding: const EdgeInsets.all(16),
                   child: _FinancialForm(controller),
                 ),
               ),
-              const SizedBox(height: 24),
+              VerticalSpacing.large,
               const Footer(),
             ],
           ),
@@ -95,7 +93,7 @@ class _FinancialForm extends StatelessWidget {
     return Column(
       children: <Widget>[
         SvgPicture.asset(Assets.kalshiLogo),
-        const SizedBox(height: 16),
+        VerticalSpacing.medium,
         Text(
           'Financial wellness test',
           textAlign: TextAlign.center,
@@ -115,7 +113,7 @@ class _FinancialForm extends StatelessWidget {
             height: 1.2,
           ),
         ),
-        const SizedBox(height: 16),
+        VerticalSpacing.medium,
         Form(
           key: controller.formKey,
           child: Column(
@@ -154,7 +152,7 @@ class _FinancialForm extends StatelessWidget {
                 ),
                 validator: controller.validateAnnualIncome,
               ),
-              const SizedBox(height: 16),
+              VerticalSpacing.medium,
               const Text('Monthly Costs'),
               TextFormField(
                 controller: controller.textMonthlyCostsController,
@@ -185,7 +183,7 @@ class _FinancialForm extends StatelessWidget {
                 ),
                 validator: controller.validateMonthlyAmount,
               ),
-              const SizedBox(height: 16),
+              VerticalSpacing.medium,
               ElevatedButton(
                 onPressed: () {
                   if (controller.isFormValid()) {
