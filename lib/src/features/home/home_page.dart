@@ -104,7 +104,8 @@ class _FinancialForm extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Annual income'),
+              Text('Annual income', style: textTheme.labelSmall,),
+              VerticalSpacing.small,
               TextFormField(
                 key: const Key('annual_income_text_field'),
                 controller: controller.textAnnualIncomeController,
@@ -131,7 +132,8 @@ class _FinancialForm extends StatelessWidget {
                 validator: controller.validateAnnualIncome,
               ),
               VerticalSpacing.medium,
-              const Text('Monthly Costs'),
+              Text('Monthly Costs', style: textTheme.labelSmall),
+              VerticalSpacing.small,
               TextFormField(
                 key: const Key('monthly_costs_text_field'),
                 controller: controller.textMonthlyCostsController,

@@ -44,6 +44,11 @@ class AppTheme {
           height: 1.2,
           color: const Color(0xFF4D6475),
         ),
+        labelSmall: GoogleFonts.workSans(
+          color: const Color(0xFF1E2A32),
+          fontSize: 12,
+          height: 1.5,
+        ),
         labelMedium: GoogleFonts.workSans(
           color: const Color(0xFF4D6475),
           fontSize: 14,
