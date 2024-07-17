@@ -112,6 +112,7 @@ class _FinancialForm extends StatelessWidget {
                 style: textTheme.bodyLarge,
                 keyboardType: TextInputType.number,
                 inputFormatters: [controller.formatterAnnual],
+                autovalidateMode: AutovalidateMode.onUserInteraction,
                 decoration: InputDecoration(
                   hintText: '0,000',
                   hintStyle: textTheme.bodyLarge!.copyWith(
@@ -140,6 +141,7 @@ class _FinancialForm extends StatelessWidget {
                 style: textTheme.bodyLarge,
                 keyboardType: TextInputType.number,
                 inputFormatters: [controller.formatterMonthly],
+                autovalidateMode: AutovalidateMode.onUserInteraction,
                 decoration: InputDecoration(
                   hintText: '0,000',
                   hintStyle: textTheme.bodyLarge!.copyWith(
