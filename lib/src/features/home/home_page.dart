@@ -60,7 +60,7 @@ class _Headline extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32.0),
       child: Text.rich(
-         TextSpan(
+        TextSpan(
           text: 'Let\'s find out your ',
           style: textTheme.headlineMedium,
           children: <TextSpan>[
@@ -174,11 +174,9 @@ class _FinancialForm extends StatelessWidget {
                   backgroundColor: const Color(0xFF001C95),
                   foregroundColor: Colors.white,
                   minimumSize: const Size(double.infinity, 56),
+                  textStyle: textTheme.labelLarge,
                 ),
-                child: Text(
-                  'Continue',
-                  style: textTheme.labelLarge,
-                ),
+                child: const Text('Continue'),
               )
             ],
           ),
