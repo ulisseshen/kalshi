@@ -62,11 +62,11 @@ class _Headline extends StatelessWidget {
       child: Text.rich(
         TextSpan(
           text: 'Let\'s find out your ',
-          style: textTheme.headlineMedium,
+          style: textTheme.headlineSmall,
           children: <TextSpan>[
             TextSpan(
               text: 'financial wellness score.',
-              style: textTheme.headlineSmall,
+              style: textTheme.headlineMedium,
             ),
           ],
         ),

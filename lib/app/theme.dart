@@ -13,12 +13,12 @@ class AppTheme {
       textTheme: TextTheme(
         headlineMedium: GoogleFonts.workSans(
           color: const Color(0xFF001C95),
-          fontSize: 18,
+          fontSize: 20,
           height: 1.2,
         ),
         headlineSmall: GoogleFonts.workSans(
           color: const Color(0xFF001C95),
-          fontSize: 20,
+          fontSize: 18,
           fontWeight: FontWeight.w600,
           height: 1.2,
         ),

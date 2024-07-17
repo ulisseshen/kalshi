@@ -57,18 +57,14 @@ class StatusPage extends StatelessWidget {
                 child: Text.rich(
                   TextSpan(
                     text: 'Here\'s your ',
-                    style: textTheme.headlineMedium,
+                    style: textTheme.headlineSmall,
                     children: <TextSpan>[
                       TextSpan(
                         text: 'financial wellness score.',
-                        style: textTheme.headlineSmall,
+                        style: textTheme.headlineMedium,
                       ),
                     ],
                   ),
-                  // style: GoogleFonts.workSans(
-                  //   color: Color(0xFF001C95),
-                  //   height: 1.2,
-                  // ),
                   textAlign: TextAlign.center,
                 ),
               ),
