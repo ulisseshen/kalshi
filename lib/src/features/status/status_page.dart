@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -39,40 +38,37 @@ class StatusPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: colorScheme.onPrimary,
         centerTitle: true,
         title: SvgPicture.asset(Assets.kalshiTextLogo),
       ),
-      backgroundColor: Color(0xFFF4F8FA),
+      backgroundColor: const Color(0xFFF4F8FA),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 32.0),
                 child: Text.rich(
-                  const TextSpan(
+                  TextSpan(
                     text: 'Here\'s your ',
-                    style: TextStyle(
-                      fontSize: 18,
-                      height: 1.2,
-                    ),
+                    style: textTheme.headlineMedium,
                     children: <TextSpan>[
                       TextSpan(
                         text: 'financial wellness score.',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 20),
+                        style: textTheme.headlineSmall,
                       ),
                     ],
                   ),
-                  style: GoogleFonts.workSans(
-                    color: Color(0xFF001C95),
-                    height: 1.2,
-                  ),
+                  // style: GoogleFonts.workSans(
+                  //   color: Color(0xFF001C95),
+                  //   height: 1.2,
+                  // ),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -91,30 +87,17 @@ class StatusPage extends StatelessWidget {
                           child: Text(
                             getStatusTitle(),
                             textAlign: TextAlign.center,
-                            style: GoogleFonts.rubik(
-                              color: Color(0xFF1E2A32),
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                              height: 1.5,
-                            ),
+                            style: textTheme.titleMedium!.copyWith(height: 1.5),
                           ),
                         ),
                         Text(
                           'Your financial wellness score is ',
-                          style: GoogleFonts.workSans(
-                            color: Color(0xFF4D6475),
-                            fontSize: 14,
-                            height: 1.5,
-                          ),
+                          style: textTheme.bodyMedium!.copyWith(height: 1.5),
                           textAlign: TextAlign.center,
                         ),
                         Text(
                           getStatusText(),
-                          style: GoogleFonts.workSans(
-                              color: Color(0xFF4D6475),
-                              fontSize: 14,
-                              height: 1.2,
-                              fontWeight: FontWeight.w600),
+                          style: textTheme.labelMedium,
                           textAlign: TextAlign.center,
                         ),
                         VerticalSpacing.extraLarge,
@@ -123,24 +106,18 @@ class StatusPage extends StatelessWidget {
                             Navigator.of(context).pop();
                           },
                           style: OutlinedButton.styleFrom(
-                            side:
-                                BorderSide(color: Color(0xFF001C95), width: 2),
-                            minimumSize: Size(double.infinity, 56),
+                            side: const BorderSide(
+                                color: Color(0xFF001C95), width: 2),
+                            minimumSize: const Size(double.infinity, 56),
+                            textStyle: textTheme.labelLarge,
                           ),
-                          child:  Text(
-                            'Return',
-                            style: GoogleFonts.workSans(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              height: 1,
-                            ),
-                          ),
+                          child: const Text('Return'),
                         ),
                       ],
                     )),
               ),
-              SizedBox(height: 24),
-              Footer(),
+              const SizedBox(height: 24),
+              const Footer(),
             ],
           ),
         ),
@@ -148,7 +125,6 @@ class StatusPage extends StatelessWidget {
     );
   }
 }
-
 
 class _StatusBar extends StatelessWidget {
   const _StatusBar({required this.status});
@@ -160,14 +136,13 @@ class _StatusBar extends StatelessWidget {
     if (status == FinancialStatus.average) {
       return const _AverageBar();
     }
-    
+
     if (status == FinancialStatus.unhealthy) {
       return const _UnhealthyBar();
     }
 
     return const _HelthyBar();
   }
-
 }
 
 class _HelthyBar extends StatelessWidget {
@@ -176,7 +151,7 @@ class _HelthyBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Stack(
-      children:  [
+      children: [
         _OneBar(color: Color(0xFF04C761), slotSize: _SlotSize.three),
         _OneBar(color: Color(0xFF04C761), slotSize: _SlotSize.two),
         _OneBar(color: Color(0xFF04C761), slotSize: _SlotSize.one),
@@ -191,7 +166,7 @@ class _AverageBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Stack(
-      children:  [
+      children: [
         _OneBar(color: Color(0xFFE9EEF2), slotSize: _SlotSize.three),
         _OneBar(color: Color(0xFFFFC032), slotSize: _SlotSize.two),
         _OneBar(color: Color(0xFFFFC032), slotSize: _SlotSize.one),
@@ -206,7 +181,7 @@ class _UnhealthyBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Stack(
-      children:  [
+      children: [
         _OneBar(color: Color(0xFFE9EEF2), slotSize: _SlotSize.three),
         _OneBar(color: Color(0xFFE9EEF2), slotSize: _SlotSize.two),
         _OneBar(color: Color(0xFFD32A36), slotSize: _SlotSize.one),
@@ -236,11 +211,11 @@ class _OneBar extends StatelessWidget {
   int getFlex() {
     if (slotSize == _SlotSize.one) {
       return 2;
-    } 
+    }
     if (slotSize == _SlotSize.two) {
       return 1;
     }
-    
+
     throw Exception('Should not be called at SlotSize.three');
   }
 
@@ -257,7 +232,7 @@ class _OneBar extends StatelessWidget {
                 decoration: ShapeDecoration(
                   color: color,
                   shape: RoundedRectangleBorder(
-                      side: BorderSide(
+                      side: const BorderSide(
                         color: Colors.white,
                         width: 2,
                       ),
@@ -275,4 +250,3 @@ class _OneBar extends StatelessWidget {
     );
   }
 }
-
