@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:kalshi/src/features/home/home_controller.dart';
 
 import '../../shared/widgets/footer.dart';
@@ -57,25 +56,19 @@ class _Headline extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32.0),
       child: Text.rich(
-        const TextSpan(
+         TextSpan(
           text: 'Let\'s find out your ',
-          style: TextStyle(
-            fontSize: 18,
-            height: 1.2,
-          ),
+          style: textTheme.headlineMedium,
           children: <TextSpan>[
             TextSpan(
               text: 'financial wellness score.',
-              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+              style: textTheme.headlineSmall,
             ),
           ],
-        ),
-        style: GoogleFonts.workSans(
-          color: const Color(0xFF001C95),
-          height: 1.2,
         ),
         textAlign: TextAlign.center,
       ),
@@ -90,6 +83,7 @@ class _FinancialForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     return Column(
       children: <Widget>[
         SvgPicture.asset(Assets.kalshiLogo),
@@ -97,21 +91,12 @@ class _FinancialForm extends StatelessWidget {
         Text(
           'Financial wellness test',
           textAlign: TextAlign.center,
-          style: GoogleFonts.rubik(
-            color: const Color(0xFF1E2A32),
-            fontSize: 20,
-            fontWeight: FontWeight.w500,
-            height: 1.2,
-          ),
+          style: textTheme.titleMedium,
         ),
         Text(
           'Enter your financial information below',
           textAlign: TextAlign.center,
-          style: GoogleFonts.workSans(
-            color: const Color(0xFF708797),
-            fontSize: 14,
-            height: 1.2,
-          ),
+          style: textTheme.bodySmall,
         ),
         VerticalSpacing.medium,
         Form(
@@ -123,21 +108,13 @@ class _FinancialForm extends StatelessWidget {
               TextFormField(
                 key: const Key('annual_income_text_field'),
                 controller: controller.textAnnualIncomeController,
-                style: GoogleFonts.rubik(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w500,
-                  height: 1.2,
-                  color: const Color(0xFF4D6475),
-                ),
+                style: textTheme.bodyLarge,
                 keyboardType: TextInputType.number,
                 inputFormatters: [controller.formatterAnnual],
                 decoration: InputDecoration(
                   hintText: '0,000',
-                  hintStyle: GoogleFonts.rubik(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w500,
-                    height: 1.2,
-                    color: const Color(0xFF4D6475).withOpacity(0.5),
+                  hintStyle: textTheme.bodyLarge!.copyWith(
+                    color: textTheme.bodyLarge!.color!.withOpacity(0.5),
                   ),
                   border: const OutlineInputBorder(),
                   prefixIcon: Padding(
@@ -158,21 +135,13 @@ class _FinancialForm extends StatelessWidget {
               TextFormField(
                 key: const Key('monthly_costs_text_field'),
                 controller: controller.textMonthlyCostsController,
-                style: GoogleFonts.rubik(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w500,
-                  height: 1.2,
-                  color: const Color(0xFF4D6475),
-                ),
+                style: textTheme.bodyLarge,
                 keyboardType: TextInputType.number,
                 inputFormatters: [controller.formatterMonthly],
                 decoration: InputDecoration(
                   hintText: '0,000',
-                  hintStyle: GoogleFonts.rubik(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w500,
-                    height: 1.2,
-                    color: const Color(0xFF4D6475).withOpacity(0.5),
+                  hintStyle: textTheme.bodyLarge!.copyWith(
+                    color: textTheme.bodyLarge!.color!.withOpacity(0.5),
                   ),
                   border: const OutlineInputBorder(),
                   prefixIcon: Padding(
@@ -208,11 +177,7 @@ class _FinancialForm extends StatelessWidget {
                 ),
                 child: Text(
                   'Continue',
-                  style: GoogleFonts.workSans(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    height: 1,
-                  ),
+                  style: textTheme.labelLarge,
                 ),
               )
             ],
