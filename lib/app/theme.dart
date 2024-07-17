@@ -33,11 +33,22 @@ class AppTheme {
           fontSize: 14,
           height: 1.2,
         ),
+        bodyMedium: GoogleFonts.workSans(
+          color: const Color(0xFF4D6475),
+          fontSize: 14,
+          height: 1.2,
+        ),
         bodyLarge: GoogleFonts.rubik(
           fontSize: 24,
           fontWeight: FontWeight.w500,
           height: 1.2,
           color: const Color(0xFF4D6475),
+        ),
+        labelMedium: GoogleFonts.workSans(
+          color: const Color(0xFF4D6475),
+          fontSize: 14,
+          height: 1.2,
+          fontWeight: FontWeight.w600,
         ),
         labelLarge: GoogleFonts.workSans(
           fontSize: 16,
